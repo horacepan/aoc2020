@@ -23,14 +23,14 @@ end
 function main()
     fname = "../data/p3.txt";
     lines = readlines(fname);
-    # a1 = solve_slope(lines, 1, 1);
+    a1 = solve_slope(lines, 1, 1);
     a2 = solve_slope(lines, 1, 3);
-    # a3 = solve_slope(lines, 1, 5);
-    # a4 = solve_slope(lines, 1, 7);
-    # a5 = solve_slope(lines, 2, 1);
-    # vals = [a1, a2, a3, a4, a5];
-    # println("Part one: ", a2);
-    # println("Part two: ", prod(vals));
+    a3 = solve_slope(lines, 1, 5);
+    a4 = solve_slope(lines, 1, 7);
+    a5 = solve_slope(lines, 2, 1);
+    vals = [a1, a2, a3, a4, a5];
+    println("Part one: ", a2);
+    println("Part two: ", prod(vals));
 end
 
 main()
