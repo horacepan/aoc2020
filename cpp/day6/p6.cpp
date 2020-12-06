@@ -5,6 +5,7 @@
 #include <set>
 #include <algorithm>
 #include <iterator>
+#include <array>
 
 int get_uniques(std::vector<std::string> &lines) {
   std::set<char> qs;
@@ -18,7 +19,22 @@ int get_uniques(std::vector<std::string> &lines) {
 }
 
 int get_all_uniques(std::vector<std::string> &lines) {
-  return 0;
+  int uniques = 0;
+  std::array<int, 26> counts;
+  counts.fill(0);
+
+  for (auto ln: lines) {
+    for (auto c: ln) {
+      counts[c - 'a'] += 1;
+    }
+  }
+
+  for (auto cnt: counts) {
+    if (cnt == lines.size()) {
+      uniques += 1;
+    }
+  }
+  return uniques;
 }
 
 int main() {
@@ -39,16 +55,6 @@ int main() {
     }
   }
   std::cout << "Part one: " << tot << std::endl;
-  return 0;
-}
-
-int main2() {
-  std::string stuff = "acac";
-  std::set<char> vals;
-
-  for(auto c: stuff) {
-    vals.insert(c);
-  }
-  std::cout << vals.size() << std::endl;
+  std::cout << "Part two: " << tot_all << std::endl;
   return 0;
 }
